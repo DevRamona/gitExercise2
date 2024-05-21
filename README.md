@@ -103,3 +103,21 @@ $ git commit -m "Updated project readme"
 
 ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
 $
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git pull
+Already up to date.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ ls
+'e -i HEAD~2'   readme.txt   test2.md   test4.md
+ README.md      test1.md     test3.md   test5.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git branch -d ft/new-feature
+error: the branch 'ft/new-feature' is not fully merged
+hint: If you are sure you want to delete it, run 'git branch -D ft/new-feature'
+hint: Disable this message with "git config advice.forceDeleteBranch false"
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git branch -D ft/new-feature
+Deleted branch ft/new-feature (was 3201ab4).
