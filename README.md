@@ -1,6 +1,8 @@
-# gitExercise2
+### gitExercise2
 
+## Part 1
 
+```
 rm -r gitExercises
    79  mkdir git_exercises
    80  cd git_exercises
@@ -29,10 +31,7 @@ rm -r gitExercises
   103  git branch -d test
   104  git push origin --delete test
   105  git log --graph
-<<<<<<< HEAD
 
-  ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
-=======
  git status 
 On branch main
 Your branch is ahead of 'origin/main' by 3 commits.
@@ -59,7 +58,11 @@ ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main
 $ git branch
   ft/branch
 * main
+```
 
+## Part 2 
+
+```
 ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
 $ git checkout -b ft/new-feature
 Switched to a new branch 'ft/new-feature'
@@ -408,6 +411,129 @@ Previous HEAD position was e2bebd7 Resolved the conflict
 Switched to branch 'main'
 Your branch is ahead of 'origin/main' by 4 commits.
   (use "git push" to publish your local commits)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$
+```
+
+
+## Part 3
+
+```
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git stash
+No local changes to save
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git stash pop
+No stash entries found.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git checkout -b feature-branch
+Switched to a new branch 'feature-branch'
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (feature-branch)
+$ vi test6.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (feature-branch)
+$ git add test6.md 
+warning: in the working copy of 'test6.md', LF will be replaced by CRLF the next time Git touches it
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (feature-branch)
+$ git commit -m "Created the sixth file"
+[feature-branch cd83825] Created the sixth file
+ 1 file changed, 1 insertion(+)
+New additional texts
+ create mode 100644 test6.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (feature-branch)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ ls
+'e -i HEAD~2'   readme.txt   test2.md   test4.md
+ README.md      test1.md     test3.md   test5.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ vi test6.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test6.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git add test6.md 
+warning: in the working copy of 'test6.md', LF will be replaced by CRLF the next time Git touches it
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git commit -m "Done with the sixth"
+[main a1f8a4d] Done with the sixth
+ 1 file changed, 2 insertions(+)
+ create mode 100644 test6.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git merge feature-branch 
+Auto-merging test6.md
+CONFLICT (add/add): Merge conflict in test6.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|MERGING)
+$ git add test6.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|MERGING)
+$ git commit -m "conflicts merged"
+[main fc48346] conflicts merged
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git mergetool --tool-help
+'git mergetool --tool=<tool>' may be set to one of the following:
+                vimdiff          Use Vim with a custom layout (see `git help mergetool`'s `BACKEND SPECIFIC HINTS` section)
+                vimdiff1         Use Vim with a 2 panes layout (LOCAL and REMOTE)
+                vimdiff2         Use Vim with a 3 panes layout (LOCAL, MERGED and REMOTE)
+                vimdiff3         Use Vim where only the MERGED file is shown
+
+The following tools are valid, but not currently available:
+                araxis           Use Araxis Merge (requires a graphical session)
+                bc               Use Beyond Compare (requires a graphical session)
+                bc3              Use Beyond Compare (requires a graphical session)
+                bc4              Use Beyond Compare (requires a graphical session)
+                codecompare      Use Code Compare (requires a graphical session)
+                deltawalker      Use DeltaWalker (requires a graphical session)
+                diffmerge        Use DiffMerge (requires a graphical session)
+                diffuse          Use Diffuse (requires a graphical session)
+                ecmerge          Use ECMerge (requires a graphical session)
+                emerge           Use Emacs' Emerge
+                examdiff         Use ExamDiff Pro (requires a graphical session)
+                guiffy           Use Guiffy's Diff Tool (requires a graphical session)
+                gvimdiff         Use gVim (requires a graphical session) with a custom layout (see `git help mergetool`'s `BACKEND SPECIFIC HINTS` section)
+                gvimdiff1        Use gVim (requires a graphical session) with a 2 panes layout (LOCAL and REMOTE)
+                gvimdiff2        Use gVim (requires a graphical session) with a 3 panes layout (LOCAL, MERGED and REMOTE)
+                gvimdiff3        Use gVim (requires a graphical session) where only the MERGED file is shown
+                kdiff3           Use KDiff3 (requires a graphical session)
+                meld             Use Meld (requires a graphical session) with optional `auto merge` (see `git help mergetool`'s `CONFIGURATION` section)
+                nvimdiff         Use Neovim with a custom layout (see `git help mergetool`'s `BACKEND SPECIFIC HINTS` section)
+                nvimdiff1        Use Neovim with a 2 panes layout (LOCAL and REMOTE)
+                nvimdiff2        Use Neovim with a 3 panes layout (LOCAL, MERGED and REMOTE)
+                nvimdiff3        Use Neovim where only the MERGED file is shown
+                opendiff         Use FileMerge (requires a graphical session)
+                p4merge          Use HelixCore P4Merge (requires a graphical session)
+                smerge           Use Sublime Merge (requires a graphical session)
+                tkdiff           Use TkDiff (requires a graphical session)
+                tortoisemerge    Use TortoiseMerge (requires a graphical session)
+                winmerge         Use WinMerge (requires a graphical session)
+                xxdiff           Use xxdiff (requires a graphical session)
+
+Some of the tools listed above only work in a windowed
+environment. If run in a terminal-only session, they will fail.
 
 ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
 $
