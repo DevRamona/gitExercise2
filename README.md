@@ -29,3 +29,240 @@ rm -r gitExercises
   103  git branch -d test
   104  git push origin --delete test
   105  git log --graph
+ git status 
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git add README.md 
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git commit -m "new changes added in the README"
+New feature is created to implement some functionalities
+[main 5d8b559] new changes added in the README
+ 1 file changed, 30 insertions(+)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git branch
+  ft/branch
+* main
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git checkout -b ft/new-feature
+Switched to a new branch 'ft/new-feature'
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-feature)
+$ vi feature.txt
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-feature)
+$ git add feature.txt
+warning: in the working copy of 'feature.txt', LF will be replaced by CRLF the next time Git touches it
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-fe
+There are introductory concepts that are added in this file
+ature)
+$ git commit -m "Implemented core functionality for new feature"
+[ft/new-feature 3201ab4] Implemented core functionality for new feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-feature)
+$ git switch main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ vi readme.txt
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git commit -m "Updated project readme"
+On branch main
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        readme.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git add readme.text
+fatal: pathspec 'readme.text' did not match any files
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git commit -m "Updated project readme"
+On branch main
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        readme.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git add readme.txt
+warning: in the working copy of 'readme.txt', LF will be replaced by CRLF the next time Git touches it
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git commit -m "Updated project readme"
+[main e9a47e1] Updated project readme
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git status 
+On branch main
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git add README.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git commit -m "history "
+[main 715fe82] history
+ 1 file changed, 74 insertions(+)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git push 
+Enumerating objects: 20, done.
+Counting objects: 100% (20/20), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (18/18), 2.76 KiB | 314.00 KiB/s, done.
+Total 18 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (6/6), done.
+To https://github.com/DevRamona/gitExercise2.git
+   b4cb870..715fe82  main -> main
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git pull
+Already up to date.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ ls
+'e -i HEAD~2'   readme.txt   test2.md   test4.md
+ README.md      test1.md     test3.md   test5.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git branch -d ft/new-feature
+error: the branch 'ft/new-feature' is not fully merged
+hint: If you are sure you want to delete it, run 'git branch -D ft/new-feature'
+hint: Disable this message with "git config advice.forceDeleteBranch false"
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git branch -D ft/new-feature
+Deleted branch ft/new-feature (was 3201ab4).
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git add README.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git commit -m "New codes were added"
+[main 32fa632] New codes were added
+ 1 file changed, 18 insertions(+)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git log --oneline --graph
+* 32fa632 (HEAD -> main) New codes were added
+* 715fe82 (origin/main, origin/HEAD) history
+* e9a47e1 Updated project readme
+* 5d8b559 new changes added in the README
+* ffa4587 Implemented test 5
+* b2f6e86 chore: Create initial file
+* ef13dba Create Third and Fourth File
+* b4cb870 Create README.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git log 
+commit 32fa6324fb561b492a02c33c8819fd3f8bae7215 (HEAD -> main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 14:38:19 2024 +0200
+
+    New codes were added
+
+commit 715fe82a71d8bed4422bf4006a9b67ceb8372eab (origin/main, origin/HEAD)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 11:01:31 2024 +0200
+
+    history
+
+commit e9a47e121c0b81c47a53612ef63376b3149eb326
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 10:46:22 2024 +0200
+
+    Updated project readme
+
+commit 5d8b55948e5dc237e13f8fa7b6a37d4635d3205a
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git log 
+commit 32fa6324fb561b492a02c33c8819fd3f8bae7215 (HEAD -> main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 14:38:19 2024 +0200
+
+    New codes were added
+
+commit 715fe82a71d8bed4422bf4006a9b67ceb8372eab (origin/main, origin/HEAD)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 11:01:31 2024 +0200
+
+    history
+
+commit e9a47e121c0b81c47a53612ef63376b3149eb326
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 10:46:22 2024 +0200
+
+    Updated project readme
+
+commit 5d8b55948e5dc237e13f8fa7b6a37d4635d3205a
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 10:39:09 2024 +0200
+
+    new changes added in the README
+
+commit ffa458711f02f77996db3a77d9da78dc121144a3
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Mon May 20 19:38:17 2024 +0200
+
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git log --oneline -3
+32fa632 (HEAD -> main) New codes were added
+715fe82 (origin/main, origin/HEAD) history
+e9a47e1 Updated project readme
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git checkout -b ft/new-branch-from-commit e9a47e1
+Switched to a new branch 'ft/new-branch-from-commit'
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-branch-from-commit)
+$  git log --oneline --graph
+* e9a47e1 (HEAD -> ft/new-branch-from-commit) Updated project readme
+* 5d8b559 new changes added in the README
+* ffa4587 Implemented test 5
+* b2f6e86 chore: Create initial file
+* ef13dba Create Third and Fourth File
+* b4cb870 Create README.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-branch-from-commit)
+$
