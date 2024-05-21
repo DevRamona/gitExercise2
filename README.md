@@ -3,61 +3,415 @@
 ## Part 1
 
 ```
-rm -r gitExercises
-   79  mkdir git_exercises
-   80  cd git_exercises
-   81  git init
-   82  git status
-   83  vi README.md
-   84  rm -r README.md
-   85  ls
-   86  git branch -m main
-   87  vi README.md
-   88  ls
-   89  git add README.md
-   90  git commit -m "A file has been added"
-   91  git remote add https://github.com/DevRamona/gitStarted.git
-   92  git remote add origin https://github.com/DevRamona/gitStarted.git
-   93  git push --set-upstream origin main
-   94  git status
-   95  git checkout b dev
-   96  git checkout -b dev
-   97  git status
-   98  git branch
-   99  git push origin dev
-  100  git checkout -b test
-  101  git push origin test
-  102  git checkout dev
-  103  git branch -d test
-  104  git push origin --delete test
-  105  git log --graph
-
- git status 
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git status
 On branch main
-Your branch is ahead of 'origin/main' by 3 commits.
-  (use "git push" to publish your local commits)
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test4.md
 
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   README.md
+nothing added to commit but untracked files present (use "git add" to track)
 
-no changes added to commit (use "git add" and/or "git commit -a")
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git log
+commit 8fae7631f217911a02944d0c779ad4ac70733c2a (HEAD -> main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:58 2024 +0200
 
-ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
-$ git add README.md 
+    chore: Create third and fourth files
 
-ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
-$ git commit -m "new changes added in the README"
-New feature is created to implement some functionalities
-[main 5d8b559] new changes added in the README
- 1 file changed, 30 insertions(+)
+commit b291a72408e1930e43124c031c5e25e0b9338e0d
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
 
-ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
->>>>>>> ft/new-branch-from-commit
-$ git branch
-  ft/branch
-* main
+    chore: Create another file
+
+commit 1438792869560a2da326bacbdab0e933984f2789
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: Create initial file
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git add test4.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git commit --amend --no-edit
+[main de09fdb] chore: Create third and fourth files
+ Date: Tue May 21 12:25:58 2024 +0200
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test3.md
+ create mode 100644 test4.md
+
+ ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git rebase -i HEAD~2
+[detached HEAD 971a241] chore: Create second file
+ Date: Tue May 21 12:25:57 2024 +0200
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test2.md
+Successfully rebased and updated refs/heads/main.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git log
+commit 285f7adc918b6746722302de4f21b30782cc1019 (HEAD -> main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:58 2024 +0200
+
+    chore: Create third and fourth files
+
+commit 971a2418f40b6666e004a32d0271f1654a119262
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: Create second file
+
+commit 1438792869560a2da326bacbdab0e933984f2789
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: Create initial file
+    ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git log
+commit 285f7adc918b6746722302de4f21b30782cc1019 (HEAD -> main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:58 2024 +0200
+
+    chore: Create third and fourth files
+
+commit 971a2418f40b6666e004a32d0271f1654a119262
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: Create second file
+
+commit 1438792869560a2da326bacbdab0e933984f2789
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: Create initial file
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git rebase -i --root
+[detached HEAD 8248c41] chore: create the first two files
+ Date: Tue May 21 12:25:57 2024 +0200
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test1.md
+ create mode 100644 test2.md
+Successfully rebased and updated refs/heads/main.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git log
+commit 443af88ee6445dfbdea1c18c748ef9649c699931 (HEAD -> main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:58 2024 +0200
+
+    chore: Create third and fourth files
+
+commit 8248c4197a22a90026987236bbd3c6a7cd55a5f4
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: create the first two files
+
+    chore: Create initial file
+
+    chore: Create second file
+
+    ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git log
+commit 443af88ee6445dfbdea1c18c748ef9649c699931 (HEAD -> main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:58 2024 +0200
+
+    chore: Create third and fourth files
+
+commit 8248c4197a22a90026987236bbd3c6a7cd55a5f4
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: create the first two files
+
+    chore: Create initial file
+
+    chore: Create second file
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git rebase -i Head~1
+Stopped at 443af88...  chore: Create third and fourth files
+You can amend the commit now, with
+
+  git commit --amend
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|REBASE 1/1)
+$ git status
+interactive rebase in progress; onto 8248c41
+Last command done (1 command done):
+   edit 443af88 chore: Create third and fourth files
+No commands remaining.
+You are currently editing a commit while rebasing branch 'main' on '8248c41'.
+  (use "git commit --amend" to amend the current commit)
+  (use "git rebase --continue" once you are satisfied with your changes)
+
+nothing to commit, working tree clean
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|REBASE 1/1)
+$ git reset HEAD~
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|REBASE 1/1)
+$ git status
+interactive rebase in progress; onto 8248c41
+Last command done (1 command done):
+   edit 443af88 chore: Create third and fourth files
+No commands remaining.
+You are currently editing a commit while rebasing branch 'main' on '8248c41'.
+  (use "git commit --amend" to amend the current commit)
+  (use "git rebase --continue" once you are satisfied with your changes)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test3.md
+        test4.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|REBASE 1/1)
+$ git add test3.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|REBASE 1/1)
+$ git commit -m"create third file"
+[detached HEAD 5b3e6ea] create third file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test3.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|REBASE 1/1)
+$ git add test4.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|REBASE 1/1)
+$ git commit -m"create fourth file"
+[detached HEAD 70851ec] create fourth file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test4.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|REBASE 1/1)
+$ git rebase --continue
+Successfully rebased and updated refs/heads/main.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git log
+commit 945d29e56f70f52cd5405ebccc043974c803c512 (HEAD -> main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 14:19:33 2024 +0200
+pick 0a42925 create third and fourth files
+
+    Unwanted commit
+
+commit 0a4292517dc5890e0f987be44bfb5303ef1af7a5
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 13:49:08 2024 +0200
+
+    create third and fourth files
+
+    create fourth file
+
+commit 8248c4197a22a90026987236bbd3c6a7cd55a5f4
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: create the first two files
+
+    chore: Create initial file
+
+    chore: Create second file
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git rebase -i Head~2
+Successfully rebased and updated refs/heads/main.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git log
+commit 0a4292517dc5890e0f987be44bfb5303ef1af7a5 (HEAD -> main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 13:49:08 2024 +0200
+
+    create third and fourth files
+
+    create fourth file
+
+commit 8248c4197a22a90026987236bbd3c6a7cd55a5f4
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: create the first two files
+
+    chore: Create initial file
+
+    chore: Create second file
+
+    ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git rebase -i --root
+Successfully rebased and updated refs/heads/main.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git log
+commit 077b3f71f611969c6f3d8ab2e0094e12ca73c0be (HEAD -> main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: create the first two files
+
+    chore: Create initial file
+
+    chore: Create second file
+
+commit c305411b3a13778fb255b5b5f1f59002c7cca303
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 13:49:08 2024 +0200
+
+    create third and fourth files
+
+    create fourth file
+
+    ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git checkout -b ft/branch
+Switched to a new branch 'ft/branch'
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/branch)
+$ git add .
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/branch)
+$  git commit -m"Implemented test 5"
+[ft/branch 6c1ac40] Implemented test 5
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test5.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/branch)
+$ git log
+commit 6c1ac400dce5dd24ae1bbc8fba2eb408b1ba6630 (HEAD -> ft/branch)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 14:50:39 2024 +0200
+
+    Implemented test 5
+
+commit 077b3f71f611969c6f3d8ab2e0094e12ca73c0be (main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: create the first two files
+
+    chore: Create initial file
+
+:...skipping...
+commit 6c1ac400dce5dd24ae1bbc8fba2eb408b1ba6630 (HEAD -> ft/branch)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 14:50:39 2024 +0200
+
+    Implemented test 5
+
+commit 077b3f71f611969c6f3d8ab2e0094e12ca73c0be (main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: create the first two files
+
+    chore: Create initial file
+
+    chore: Create second file
+
+commit c305411b3a13778fb255b5b5f1f59002c7cca303
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 13:49:08 2024 +0200
+
+    create third and fourth files
+
+    create fourth file
+
+    ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/branch)
+$ git checkout main
+Switched to branch 'main'
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git cherry-pick 6c1ac400dce5dd24ae1bbc8fba2eb408b1ba6630
+[main ff82239] Implemented test 5
+ Date: Tue May 21 14:50:39 2024 +0200
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test5.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git log
+commit ff82239d7eb3bc4cb31c596567d84fce4031b4e0 (HEAD -> main)
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 14:50:39 2024 +0200
+
+    Implemented test 5
+
+commit 077b3f71f611969c6f3d8ab2e0094e12ca73c0be
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 12:25:57 2024 +0200
+
+    chore: create the first two files
+
+    chore: Create initial file
+
+    chore: Create second file
+
+commit c305411b3a13778fb255b5b5f1f59002c7cca303
+Author: DevRamona <r.ingabire@alustudent.com>
+Date:   Tue May 21 13:49:08 2024 +0200
+
+    create third and fourth files
+
+    create fourth file
+
+    ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git log --graph
+* commit ff82239d7eb3bc4cb31c596567d84fce4031b4e0 (HEAD -> main)
+| Author: DevRamona <r.ingabire@alustudent.com>
+| Date:   Tue May 21 14:50:39 2024 +0200
+| 
+|     Implemented test 5
+| 
+* commit 077b3f71f611969c6f3d8ab2e0094e12ca73c0be
+| Author: DevRamona <r.ingabire@alustudent.com>
+| Date:   Tue May 21 12:25:57 2024 +0200
+| 
+|     chore: create the first two files
+|     
+|     chore: Create initial file
+|     
+|     chore: Create second file
+| 
+* commit c305411b3a13778fb255b5b5f1f59002c7cca303
+  Author: DevRamona <r.ingabire@alustudent.com>
+  Date:   Tue May 21 13:49:08 2024 +0200
+  
+      create third and fourth files
+      
+      create fourth file
+
+      ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)
+$ git checkout -b ft/new-feature
+Switched to a new branch 'ft/new-feature'
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-feature)
+$ 
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-feature)
+$ git add .
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-feature)
+$ git commit -m"chore: Implemented core functionality for new feature"
+[ft/new-feature 37ff11f] chore: Implemented core functionality for new feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-feature)
+$ 
+
+
 ```
 
 ## Part 2 
@@ -182,8 +536,7 @@ hint: Disable this message with "git config advice.forceDeleteBranch false"
 ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
 $ git branch -D ft/new-feature
 Deleted branch ft/new-feature (was 3201ab4).
-<<<<<<< HEAD
-=======
+
 
 ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
 $ git add README.md
