@@ -316,3 +316,98 @@ $ git commit -m 'Resolved the conflict'
 
 ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
 $
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git add README.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git commit -m "updated the README"
+[main 39de8bf] updated the README
+ 1 file changed, 40 insertions(+)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git checkout ft/new-branch-from-commit
+Switched to branch 'ft/new-branch-from-commit'
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-branch-from-commit)
+$ git pull origin ft/new-branch-from-commit
+fatal: couldn't find remote ref ft/new-branch-from-commit
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-branch-from-commit)
+$ git rebase main
+Successfully rebased and updated refs/heads/ft/new-branch-from-commit.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-branch-from-commit)
+$ git add README.md 
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-branch-from-commit)
+$ git rebase --continue
+fatal: No rebase in progress?
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-branch-from-commit)
+$ git push origin ft/new-branch-from-commit
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 3.37 KiB | 575.00 KiB/s, done.
+Total 12 (delta 7), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (7/7), completed with 1 local object.
+remote:
+remote: Create a pull request for 'ft/new-branch-from-commit' on GitHub by visiting: 
+remote:      https://github.com/DevRamona/gitExercise2/pull/new/ft/new-branch-from-commit
+remote:
+To https://github.com/DevRamona/gitExercise2.git
+ * [new branch]      ft/new-branch-from-commit -> ft/new-branch-from-commit
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-branch-from-commit)
+$ git branch -m ft/new-branch-from-commit ft/improved-branch-name
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/improved-branch-name)
+$ git log -- oneline 
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/improved-branch-name)
+$ git log --oneline --graph
+* 39de8bf (HEAD -> ft/improved-branch-name, origin/ft/new-branch-from-commit, main) updated the README
+*   e2bebd7 Resolved the conflict
+|\
+| * 0d7f486 new
+* | 32fa632 New codes were added
+* | 715fe82 (origin/main, origin/HEAD) history
+|/
+* e9a47e1 Updated project readme
+* 5d8b559 new changes added in the README
+* ffa4587 Implemented test 5
+* b2f6e86 chore: Create initial file
+* ef13dba Create Third and Fourth File
+* b4cb870 Create README.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/improved-branch-name)
+$ git checkout e2bebd7
+Note: switching to 'e2bebd7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at e2bebd7 Resolved the conflict
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 ((e2bebd7...))
+$ git checkout main 
+Previous HEAD position was e2bebd7 Resolved the conflict
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$
