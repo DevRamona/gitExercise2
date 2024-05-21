@@ -276,3 +276,43 @@ $  git log --oneline --graph
 ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-branch-from-commit)
 $
 >>>>>>> ft/new-branch-from-commit
+
+
+git checkout main 
+error: Your local changes to the following files would be overwritten by checkout:
+        README.md
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-branch-from-commit)
+$ git commit -m "new"
+[ft/new-branch-from-commit 0d7f486] new
+ 1 file changed, 237 insertions(+)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (ft/new-branch-from-commit)
+$ git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git pull origin main 
+From https://github.com/DevRamona/gitExercise2
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$ git merge ft/new-branch-from-commit
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|MERGING)
+$ git add README.md
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main|MERGING)
+$ git commit -m 'Resolved the conflict'
+[main e2bebd7] Resolved the conflict
+
+ingab@DESKTOP-13J8UH7 MINGW64 ~/Desktop/git-advanced-exercise/gitExercise2 (main)    
+$
